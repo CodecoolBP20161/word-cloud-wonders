@@ -1,5 +1,6 @@
 package com.wordcloudwonders.model;
 
+import com.wordcloudwonders.security.Role;
 import lombok.Data;
 import lombok.ToString;
 
@@ -13,7 +14,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
 
     @Column(unique = true)
     @NotNull
@@ -21,5 +22,9 @@ public class User {
 
     @NotNull
     private String password;
+
+    @NotNull
+    @Enumerated(value = EnumType.STRING)
+    private Role role;
 
 }
