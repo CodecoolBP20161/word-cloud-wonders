@@ -1,7 +1,7 @@
 package com.wordcloudwonders.config;
 
-import com.wordcloudwonders.model.User;
-import com.wordcloudwonders.security.UserService;
+import com.wordcloudwonders.model.MyUser;
+import com.wordcloudwonders.security.MyUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,13 +11,13 @@ import javax.annotation.PostConstruct;
 public class DataLoader {
 
     @Autowired
-    private UserService userService;
+    private MyUserService myUserService;
 
     @PostConstruct
     public void populateUsers() {
-        User user = new User();
-        user.setUsername("testUser");
-        user.setPassword("1234");
-        userService.save(user);
+        MyUser myUser = new MyUser();
+        myUser.setUsername("testUser");
+        myUser.setPassword("1234");
+        myUserService.save(myUser);
     }
 }

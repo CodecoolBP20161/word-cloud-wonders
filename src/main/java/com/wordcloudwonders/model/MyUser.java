@@ -8,9 +8,9 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Data
-@Entity(name = "`user`")
 @ToString(exclude = "password")
-public class User {
+@Entity
+public class MyUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
