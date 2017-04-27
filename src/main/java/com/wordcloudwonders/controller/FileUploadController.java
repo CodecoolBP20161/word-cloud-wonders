@@ -14,12 +14,15 @@ import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBui
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.stream.Collectors;
 
 @Controller
 public class FileUploadController {
 
     private final StorageService storageService;
+    private final ArrayList<String> fileTypes = new ArrayList<>(Arrays.asList("text/csv", "image/png"));
 
     @Autowired
     public FileUploadController(StorageService storageService) {
@@ -44,9 +47,14 @@ public class FileUploadController {
     public String handleFileUpload(@RequestParam("file") MultipartFile file,
                                    RedirectAttributes redirectAttributes) {
 
-        storageService.store(file);
-        redirectAttributes.addFlashAttribute("message",
-                "You successfully uploaded " + file.getOriginalFilename() + "!");
+        if (fileTypes.contains(file.getContentType())) {
+            storageService.store(file);
+            redirectAttributes.addFlashAttribute("message",
+                    "You successfully uploaded " + file.getOriginalFilename() + "!");
+        } else {
+            redirectAttributes.addFlashAttribute("message",
+                    "Upload of " + file.getOriginalFilename() + " failed due to not CSV/PNG type.");
+        }
 
         return "redirect:/upload";
     }
