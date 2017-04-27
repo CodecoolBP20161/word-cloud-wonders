@@ -32,8 +32,8 @@ public class UserController {
         return "index";
     }
 
-    @RequestMapping(value = "/test", method = RequestMethod.GET)
-    public String test() {
-        return "test";
+    @RequestMapping(value = "/upload", method = RequestMethod.GET)
+    public String upload() {
+        return "upload";
     }
 }
