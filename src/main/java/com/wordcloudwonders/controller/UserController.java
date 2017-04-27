@@ -32,8 +32,4 @@ public class UserController {
         return "index";
     }
 
-    @RequestMapping(value = "/upload", method = RequestMethod.GET)
-    public String upload() {
-        return "upload";
-    }
 }
