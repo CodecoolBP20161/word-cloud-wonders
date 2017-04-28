@@ -22,7 +22,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests()
                 .antMatchers("/").permitAll()
-                .and().formLogin().permitAll().defaultSuccessUrl("/test");
+                .and().formLogin().permitAll().defaultSuccessUrl("/upload")
+                .and().logout().logoutSuccessUrl("/");
     }
 
     @Bean
