@@ -44,8 +44,8 @@ public class UserControllerTest {
 
     @Test
     public void shouldSaveNewUser() throws Exception {
-        String userdetails = "{\"username\":\"testuser\",\"password\":\"testpw\"}";
-        this.mockMvc.perform(post("/registration").content(userdetails))
+        String userDetails = "{\"username\":\"testuser\",\"password\":\"testpw\"}";
+        this.mockMvc.perform(post("/registration").content(userDetails))
                 .andDo(print()).andExpect(status().isOk()).andExpect(content().string(containsString("Login")));
         MyUser savedUser = myUserRepository.findByUsername("testuser");
         assertEquals("testuser", savedUser.getUsername());
