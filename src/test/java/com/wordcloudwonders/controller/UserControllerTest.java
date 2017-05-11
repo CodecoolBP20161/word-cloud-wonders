@@ -31,14 +31,14 @@ public class UserControllerTest {
     private MyUserRepository myUserRepository;
 
     @Test
-    public void shouldReturnLoginRegistrationForm() throws Exception {
+    public void GET_default_shouldReturnLoginRegistrationForm() throws Exception {
         this.mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk())
                 .andExpect(content().string(containsString("Login")))
                 .andExpect(content().string(containsString("Register")));
     }
 
     @Test
-    public void shouldSaveNewUser() throws Exception {
+    public void POST_registration_shouldSaveNewUser() throws Exception {
         String userDetails = "{\"username\":\"testuser\",\"password\":\"testpw\"}";
         this.mockMvc.perform(post("/registration").content(userDetails))
                 .andDo(print()).andExpect(status().isOk()).andExpect(content().string(containsString("Login")));
