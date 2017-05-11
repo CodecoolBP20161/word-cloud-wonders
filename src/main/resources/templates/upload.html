@@ -24,6 +24,7 @@
         <li th:each="file : ${files}">
             <a th:href="${file}" th:text="${file}" />
         </li>
+        <div th:if="${files.empty}">NO FILES UPLOADED YET</div>
     </ul>
 </div>
 
