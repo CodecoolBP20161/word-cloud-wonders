@@ -2,9 +2,7 @@ package com.wordcloudwonders.controller;
 
 import com.wordcloudwonders.model.MyUser;
 import com.wordcloudwonders.repository.MyUserRepository;
-import com.wordcloudwonders.security.MyUserServiceImpl;
 import com.wordcloudwonders.security.Role;
-import org.json.JSONObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +10,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
