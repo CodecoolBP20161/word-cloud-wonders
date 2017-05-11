@@ -32,9 +32,6 @@ public class UserControllerTest {
     @Autowired
     private MyUserRepository myUserRepository;
 
-    @Autowired
-    private MyUserServiceImpl myUserService;
-
     @Test
     public void shouldReturnLoginRegistrationForm() throws Exception {
         this.mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk())
